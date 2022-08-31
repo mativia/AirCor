@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using tp_pav1_grupo10.InterfacesDeUsuario;
+
 namespace tp_pav1_grupo10
 {
     internal static class Program
@@ -16,7 +18,7 @@ namespace tp_pav1_grupo10
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Login());
         }
     }
 }
