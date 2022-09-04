@@ -17,13 +17,6 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
             InitializeComponent();
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
-        {
-            ValidarUsuarioHardCode();
-            MenuPrincipal ventana = new MenuPrincipal();
-            ventana.Show();
-        }
-
         private void ValidarUsuarioHardCode()
         {
             if(txtUsuario.Text == "admin" && txtContraseña.Text == "admin")
@@ -35,6 +28,18 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
             {
                 MessageBox.Show("Usuario y/o contraseña incorrectos");
             }
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            ValidarUsuarioHardCode();
+            MenuPrincipal ventana = new MenuPrincipal();
+            ventana.Show();
+        }
+
+        private void ipbAvion_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
