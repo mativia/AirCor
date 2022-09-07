@@ -41,5 +41,15 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
         {
 
         }
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                ValidarUsuarioHardCode();
+                MenuPrincipal ventana = new MenuPrincipal();
+                ventana.Show();
+            }
+        }
     }
 }
