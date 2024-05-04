@@ -1,9 +1,12 @@
-<mxfile host="app.diagrams.net" modified="2024-05-04T15:18:20.733Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="tf4odKVIAoVB8LNs3f8u" version="24.3.1" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-04T17:20:10.815Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="dkLC9Z6Qlq7YygZNfJTa" version="24.3.1" type="github" pages="2">
   <diagram name="Página-1" id="ZS32G-OKurEUqZp5J7Ip">
-    <mxGraphModel dx="1434" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1052" dy="1729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="2IBYoDhJF-mLaoDGdQ8h-1" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.layered_rect;dx=10;outlineConnect=0;whiteSpace=wrap;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="840" y="-25" width="85" height="130" as="geometry" />
+        </mxCell>
         <mxCell id="vR6RPHNOLwJnav721Kb6-1" value="&lt;div&gt;Secretaria&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
           <mxGeometry x="70" y="210" width="30" height="60" as="geometry" />
         </mxCell>
@@ -53,7 +56,7 @@
           <mxGeometry x="280" y="140" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="vR6RPHNOLwJnav721Kb6-20" value="&lt;div&gt;&lt;b&gt;&lt;u&gt;InterfazRegistrarInscripcion&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="240" y="308" width="180" height="30" as="geometry" />
+          <mxGeometry x="240" y="300" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="vR6RPHNOLwJnav721Kb6-23" value="&lt;div&gt;&lt;u&gt;&lt;b&gt;sistemaRegInscripcion&lt;/b&gt;&lt;/u&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="490" y="290" width="150" height="30" as="geometry" />
@@ -89,9 +92,6 @@
             <mxPoint x="540" y="340" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="vR6RPHNOLwJnav721Kb6-41" value="&lt;u&gt;&lt;b&gt;Inscripcion&lt;/b&gt;&lt;/u&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=4" vertex="1" parent="1">
-          <mxGeometry x="520" y="508" width="90" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="vR6RPHNOLwJnav721Kb6-42" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;" edge="1" parent="1">
           <mxGeometry width="100" relative="1" as="geometry">
             <mxPoint x="590" y="330" as="sourcePoint" />
@@ -104,9 +104,6 @@
         </mxCell>
         <mxCell id="vR6RPHNOLwJnav721Kb6-45" value="" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="747" y="430" width="80" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="vR6RPHNOLwJnav721Kb6-46" value="DetalleInscripcion" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=5" vertex="1" parent="1">
-          <mxGeometry x="727" y="508" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="vR6RPHNOLwJnav721Kb6-47" value="" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="vR6RPHNOLwJnav721Kb6-35">
           <mxGeometry relative="1" as="geometry">
@@ -151,7 +148,7 @@
           <mxGeometry x="535" y="90" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="vR6RPHNOLwJnav721Kb6-68" value="" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="810" width="80" height="80" as="geometry" />
+          <mxGeometry x="852.5" y="10" width="57.5" height="62.5" as="geometry" />
         </mxCell>
         <mxCell id="vR6RPHNOLwJnav721Kb6-69" value="&lt;b&gt;&lt;u&gt;MateriasHabilitadasParaElAlumno&lt;/u&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="740" y="90" width="220" height="30" as="geometry" />
@@ -220,9 +217,6 @@
         <mxCell id="vR6RPHNOLwJnav721Kb6-92" value="" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="275" y="440" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="vR6RPHNOLwJnav721Kb6-93" value="Estado" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=5" vertex="1" parent="1">
-          <mxGeometry x="285" y="520" width="60" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="vR6RPHNOLwJnav721Kb6-94" value="" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="vR6RPHNOLwJnav721Kb6-92" target="vR6RPHNOLwJnav721Kb6-35">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="400" y="479.5" as="sourcePoint" />
@@ -240,9 +234,26 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="vR6RPHNOLwJnav721Kb6-99" value="crear(fecha, codigo, nombre)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="350" y="430" width="180" height="30" as="geometry" />
+        <mxCell id="vR6RPHNOLwJnav721Kb6-99" value="16:crear(fecha, codigo, nombre)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="340" y="430" width="200" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="vR6RPHNOLwJnav721Kb6-41" value="&lt;u&gt;&lt;b&gt;Inscripcion&lt;/b&gt;&lt;/u&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=4;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="508" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vR6RPHNOLwJnav721Kb6-46" value="DetalleInscripcion" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="727" y="508" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vR6RPHNOLwJnav721Kb6-93" value="Estado" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="285" y="520" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="JNjPp_4FOosjSnwaBLe1" name="Página-2">
+    <mxGraphModel dx="1434" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
       </root>
     </mxGraphModel>
   </diagram>
