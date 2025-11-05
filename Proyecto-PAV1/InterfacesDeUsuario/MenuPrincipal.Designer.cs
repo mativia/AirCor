@@ -53,8 +53,11 @@
             this.imiRegistrarReserva = new FontAwesome.Sharp.IconMenuItem();
             this.lblUsuLogueado = new System.Windows.Forms.Label();
             this.lblPerfil = new System.Windows.Forms.Label();
+            this.panelUserInfo = new System.Windows.Forms.Panel();
+            // panelUserInfo will contain avatar and labels
             this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.panelUserInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -376,13 +379,24 @@
             this.imiRegistrarReserva.Text = "Registrar Reserva";
             this.imiRegistrarReserva.Click += new System.EventHandler(this.imiRegistrarReserva_Click);
             // 
+            // picUserAvatar
+            // 
+            this.picUserAvatar = new System.Windows.Forms.PictureBox();
+            this.picUserAvatar.BackColor = System.Drawing.Color.Transparent;
+            this.picUserAvatar.Location = new System.Drawing.Point(8, 8);
+            this.picUserAvatar.Name = "picUserAvatar";
+            this.picUserAvatar.Size = new System.Drawing.Size(36, 36);
+            this.picUserAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUserAvatar.TabIndex = 0;
+            this.picUserAvatar.TabStop = false;
+            // 
             // lblUsuLogueado
             // 
             this.lblUsuLogueado.AutoSize = true;
             this.lblUsuLogueado.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuLogueado.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuLogueado.ForeColor = System.Drawing.Color.White;
-            this.lblUsuLogueado.Location = new System.Drawing.Point(1202, 18);
+            this.lblUsuLogueado.Location = new System.Drawing.Point(52, 8);
             this.lblUsuLogueado.Name = "lblUsuLogueado";
             this.lblUsuLogueado.Size = new System.Drawing.Size(98, 15);
             this.lblUsuLogueado.TabIndex = 1;
@@ -392,13 +406,28 @@
             // 
             this.lblPerfil.AutoSize = true;
             this.lblPerfil.BackColor = System.Drawing.Color.Transparent;
-            this.lblPerfil.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerfil.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblPerfil.Location = new System.Drawing.Point(1202, 44);
+            this.lblPerfil.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPerfil.ForeColor = System.Drawing.Color.LightGray;
+            this.lblPerfil.Location = new System.Drawing.Point(52, 28);
             this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(48, 15);
+            this.lblPerfil.Size = new System.Drawing.Size(48, 13);
             this.lblPerfil.TabIndex = 2;
             this.lblPerfil.Text = "lblPerfil";
+            //
+            // panelUserInfo
+            //
+            this.panelUserInfo.BackColor = System.Drawing.Color.Transparent;
+            this.panelUserInfo.Location = new System.Drawing.Point(1088, 14);
+            this.panelUserInfo.Name = "panelUserInfo";
+            this.panelUserInfo.Size = new System.Drawing.Size(240, 54);
+            this.panelUserInfo.TabIndex = 1;
+            this.panelUserInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelUserInfo.Padding = new System.Windows.Forms.Padding(6);
+            this.panelUserInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.panelUserInfo.Controls.Add(this.picUserAvatar);
+            this.panelUserInfo.Controls.Add(this.lblUsuLogueado);
+            this.panelUserInfo.Controls.Add(this.lblPerfil);
+            this.panelUserInfo.Click += new System.EventHandler(this.panelUserInfo_Click);
             // 
             // iconMenuItem1
             // 
@@ -418,10 +447,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::tp_pav1_grupo10.Properties.Resources.avion;
             this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.lblPerfil);
-            this.Controls.Add(this.lblUsuLogueado);
             this.Controls.Add(this.menuStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -430,6 +457,8 @@
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panelUserInfo.ResumeLayout(false);
+            this.panelUserInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,6 +490,8 @@
         private FontAwesome.Sharp.IconMenuItem imiInformeDetalladoVuelo;
         private System.Windows.Forms.Label lblUsuLogueado;
         private System.Windows.Forms.Label lblPerfil;
+        private System.Windows.Forms.Panel panelUserInfo;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
+        private System.Windows.Forms.PictureBox picUserAvatar;
     }
 }
