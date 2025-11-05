@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using tp_pav1_grupo10.Servicios;
 using tp_pav1_grupo10.Entidades;
+using tp_pav1_grupo10.Utilities;
 
 namespace tp_pav1_grupo10.InterfacesDeUsuario
 {
@@ -97,7 +98,7 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorHandler.ShowError(this, ex, "Error al cargar la lista de pasajeros.", "FrmPasajeros.CargarGrilla");
                 this.Close();
             }
         }
@@ -254,7 +255,7 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorHandler.ShowError(this, ex, "No se pudo insertar el pasajero.", "FrmPasajeros.InsertarPasajero");
             }
         }
 
@@ -280,7 +281,7 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorHandler.ShowError(this, ex, "No se pudo actualizar el pasajero.", "FrmPasajeros.UpdatePasajero");
             }
         }
 
@@ -322,7 +323,7 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorHandler.ShowError(this, ex, "No se pudo eliminar el pasajero.", "FrmPasajeros.btnEliminar_Click");
             }
         }
     }

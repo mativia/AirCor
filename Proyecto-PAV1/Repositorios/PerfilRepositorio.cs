@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using tp_pav1_grupo10.Entidades;
+using tp_pav1_grupo10.Utilities;
 
 namespace tp_pav1_grupo10.Repositorios
 {
@@ -69,10 +70,11 @@ namespace tp_pav1_grupo10.Repositorios
 
                     tx.Commit();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     tx.Rollback();
-                    throw new ApplicationException("No se pudo registrar el perfil\nComuniquese con el administrador del sistema");
+                    ErrorHandler.Log(ex, "PerfilRepositorio.InsertarPerfiles");
+                    throw new ApplicationException("No se pudo registrar el perfil. Comuníquese con el administrador del sistema", ex);
                 }
                 finally
                 {
@@ -95,10 +97,11 @@ namespace tp_pav1_grupo10.Repositorios
 
                     tx.Commit();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     tx.Rollback();
-                    throw new ApplicationException("No se pudo eliminar el perfil\nComuniquese con el administrador del sistema");
+                    ErrorHandler.Log(ex, "PerfilRepositorio.DeletePerfiles");
+                    throw new ApplicationException("No se pudo eliminar el perfil. Comuníquese con el administrador del sistema", ex);
                 }
                 finally
                 {
@@ -130,10 +133,11 @@ namespace tp_pav1_grupo10.Repositorios
 
                     tx.Commit();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     tx.Rollback();
-                    throw new ApplicationException("No se pudo actualizar el perfil\nComuniquese con el administrador del sistema");
+                    ErrorHandler.Log(ex, "PerfilRepositorio.UpdatePerfiles");
+                    throw new ApplicationException("No se pudo actualizar el perfil. Comuníquese con el administrador del sistema", ex);
                 }
                 finally
                 {

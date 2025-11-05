@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using tp_pav1_grupo10.Entidades;
+using tp_pav1_grupo10.Utilities;
 
 namespace tp_pav1_grupo10.Repositorios
 {
@@ -110,18 +111,21 @@ namespace tp_pav1_grupo10.Repositorios
         {
             try
             {
-                string sql = $"INSERT INTO Pasajero VALUES ('{pasajero.NroDocumento}', {pasajero.ObjTipoDocumento.IdTipoDocumento}, '{pasajero.Nombre}', '{pasajero.Apellido}', '{pasajero.FechaNacimiento.ToString("s")}', " +
-                $"{pasajero.ObjSexo.IdSexo}, {pasajero.ObjPais.IdPais}, 1, '{pasajero.TelefonoCelular.ToString()}', '{pasajero.Email.ToString()}')";
+                string sql = $"INSERT INTO Pasajero (Apellido, Nombre, FechaNacimiento, IdTipoDocumento, NroDocumento, IdSexo, IdPais, Activo, TelefonoCelular, Email) VALUES " +
+                            $"('{pasajero.Apellido}', '{pasajero.Nombre}', '{pasajero.FechaNacimiento.ToString("yyyyMMdd HH:mm")}', {pasajero.ObjTipoDocumento.IdTipoDocumento}, '{pasajero.NroDocumento}', " +
+                            $"{pasajero.ObjSexo.IdSexo}, {pasajero.ObjPais.IdPais}, 1, '{pasajero.TelefonoCelular.ToString()}', '{pasajero.Email.ToString()}')";
                 int filasAfectadas = DBHelper.GetDBHelper().EjecutarSQL(sql);
                 return filasAfectadas;
             }
-            catch (System.Data.SqlClient.SqlException)
+            catch (System.Data.SqlClient.SqlException ex)
             {
-                throw new ApplicationException("No se puede insertar un pasajero con un tipo y numero de documento repetido");
+                ErrorHandler.Log(ex, "PasajeroRepositorio.InsertPasajero");
+                throw new ApplicationException("No se puede insertar un pasajero con un tipo y numero de documento repetido", ex);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new ApplicationException("Hubo un error en el almacenamineto de datos\nComuniquese con el administrador del sistema");
+                ErrorHandler.Log(ex, "PasajeroRepositorio.InsertPasajero");
+                throw new ApplicationException("Hubo un error en el almacenamiento de datos. Comuníquese con el administrador del sistema", ex);
             }
 
         }
@@ -136,9 +140,10 @@ namespace tp_pav1_grupo10.Repositorios
                 int filasAfectadas = DBHelper.GetDBHelper().EjecutarSQL(sql);
                 return filasAfectadas;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new ApplicationException("Hubo un error en el almacenamineto de datos\nComuniquese con el administrador del sistema");
+                ErrorHandler.Log(ex, "PasajeroRepositorio.UpdatePasajero");
+                throw new ApplicationException("Hubo un error en el almacenamiento de datos. Comuníquese con el administrador del sistema", ex);
             }
         }
 
@@ -150,9 +155,10 @@ namespace tp_pav1_grupo10.Repositorios
                 int filasAfectadas = DBHelper.GetDBHelper().EjecutarSQL(sql);
                 return filasAfectadas;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new ApplicationException("Hubo un error en el almacenamineto de datos\nComuniquese con el administrador del sistema");
+                ErrorHandler.Log(ex, "PasajeroRepositorio.DeletePasajero");
+                throw new ApplicationException("Hubo un error en el almacenamiento de datos. Comuníquese con el administrador del sistema", ex);
             }
         }
     }

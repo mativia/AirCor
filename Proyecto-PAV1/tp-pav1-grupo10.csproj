@@ -303,6 +303,7 @@
     <Compile Include="Servicios\UsuarioServicios.cs" />
     <Compile Include="Servicios\VueloServicios.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utilities\ErrorHandler.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
