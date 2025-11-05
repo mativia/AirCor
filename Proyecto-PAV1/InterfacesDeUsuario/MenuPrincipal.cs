@@ -27,6 +27,22 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            // Aplicar renderer personalizado para colores oscuros.
+            this.menuStrip1.Renderer = new ToolStripProfessionalRenderer(new CustomProfessionalColorTable());
+
+            // Forzar color de texto blanco a todos los ToolStripItems
+            foreach (ToolStripItem item in menuStrip1.Items)
+            {
+                item.ForeColor = Color.White;
+                if (item is ToolStripMenuItem tmi)
+                {
+                    foreach (ToolStripItem sub in tmi.DropDownItems)
+                    {
+                        sub.ForeColor = Color.White;
+                    }
+                }
+            }
+
             HabilitarMenus();
             lblUsuLogueado.Text = $"Usuario: {UsuarioServicios.UsuarioLogueado.Nombre}";
             lblPerfil.Text = $"Perfil: {UsuarioServicios.UsuarioLogueado.ObjPerfil.Nombre}";
