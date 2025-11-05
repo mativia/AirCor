@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DestinoPorClaseDS" targetNamespace="http://tempuri.org/DestinoPorClaseDS.xsd" xmlns:mstns="http://tempuri.org/DestinoPorClaseDS.xsd" xmlns="http://tempuri.org/DestinoPorClaseDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PAV_3K2_2022_10ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PAV_3K2_2022_10ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.tp_pav1_grupo10.Properties.Settings.GlobalReference.Default.PAV_3K2_2022_10ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PORCLASE1TableAdapter" GeneratorDataComponentClassName="PORCLASE1TableAdapter" Name="PORCLASE1" UserDataComponentName="PORCLASE1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PAV_3K2_2022_10ConnectionString (Settings)" DbObjectName="PAV_3K2_2022_10.dbo.CIUDAD" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        C.CodigoCiudad, COUNT(*) AS 'PasajesVendidos'
+FROM            ASIENTO AS A INNER JOIN
+                         VUELO AS V ON A.IdVuelo = V.IdVuelo INNER JOIN
+                         DEFINICION_DE_VUELO AS D ON D.NroVuelo = V.NroVuelo INNER JOIN
+                         AEROPUERTO AS AD ON AD.CodigoAeropuerto = D.CodigoAeropuertoDestino INNER JOIN
+                         CIUDAD AS C ON AD.CodigoCiudad = C.CodigoCiudad
+WHERE        (A.IdTipoClase = 1)
+GROUP BY C.CodigoCiudad</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CodigoCiudad" DataSetColumn="CodigoCiudad" />
+              <Mapping SourceColumn="PasajesVendidos" DataSetColumn="PasajesVendidos" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PORCLASE2TableAdapter" GeneratorDataComponentClassName="PORCLASE2TableAdapter" Name="PORCLASE2" UserDataComponentName="PORCLASE2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PAV_3K2_2022_10ConnectionString (Settings)" DbObjectName="PAV_3K2_2022_10.dbo.CIUDAD" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        C.CodigoCiudad, COUNT(*) AS 'PasajesVendidos'
+FROM            ASIENTO AS A INNER JOIN
+                         VUELO AS V ON A.IdVuelo = V.IdVuelo INNER JOIN
+                         DEFINICION_DE_VUELO AS D ON D.NroVuelo = V.NroVuelo INNER JOIN
+                         AEROPUERTO AS AD ON AD.CodigoAeropuerto = D.CodigoAeropuertoDestino INNER JOIN
+                         CIUDAD AS C ON AD.CodigoCiudad = C.CodigoCiudad
+WHERE        (A.IdTipoClase = 2)
+GROUP BY C.CodigoCiudad</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CodigoCiudad" DataSetColumn="CodigoCiudad" />
+              <Mapping SourceColumn="PasajesVendidos" DataSetColumn="PasajesVendidos" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PORCLASE3TableAdapter" GeneratorDataComponentClassName="PORCLASE3TableAdapter" Name="PORCLASE3" UserDataComponentName="PORCLASE3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PAV_3K2_2022_10ConnectionString (Settings)" DbObjectName="PAV_3K2_2022_10.dbo.CIUDAD" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        C.CodigoCiudad, COUNT(*) AS 'PasajesVendidos'
+FROM            ASIENTO AS A INNER JOIN
+                         VUELO AS V ON A.IdVuelo = V.IdVuelo INNER JOIN
+                         DEFINICION_DE_VUELO AS D ON D.NroVuelo = V.NroVuelo INNER JOIN
+                         AEROPUERTO AS AD ON AD.CodigoAeropuerto = D.CodigoAeropuertoDestino INNER JOIN
+                         CIUDAD AS C ON AD.CodigoCiudad = C.CodigoCiudad
+WHERE        (A.IdTipoClase = 3)
+GROUP BY C.CodigoCiudad</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CodigoCiudad" DataSetColumn="CodigoCiudad" />
+              <Mapping SourceColumn="PasajesVendidos" DataSetColumn="PasajesVendidos" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DestinoPorClaseDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DestinoPorClaseDS" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DestinoPorClaseDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PORCLASE1" msprop:Generator_RowClassName="PORCLASE1Row" msprop:Generator_RowEvHandlerName="PORCLASE1RowChangeEventHandler" msprop:Generator_RowDeletedName="PORCLASE1RowDeleted" msprop:Generator_RowDeletingName="PORCLASE1RowDeleting" msprop:Generator_RowEvArgName="PORCLASE1RowChangeEvent" msprop:Generator_TablePropName="PORCLASE1" msprop:Generator_RowChangedName="PORCLASE1RowChanged" msprop:Generator_UserTableName="PORCLASE1" msprop:Generator_RowChangingName="PORCLASE1RowChanging" msprop:Generator_TableClassName="PORCLASE1DataTable" msprop:Generator_TableVarName="tablePORCLASE1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CodigoCiudad" msprop:Generator_UserColumnName="CodigoCiudad" msprop:Generator_ColumnPropNameInTable="CodigoCiudadColumn" msprop:Generator_ColumnPropNameInRow="CodigoCiudad" msprop:Generator_ColumnVarNameInTable="columnCodigoCiudad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PasajesVendidos" msdata:ReadOnly="true" msprop:Generator_UserColumnName="PasajesVendidos" msprop:Generator_ColumnPropNameInTable="PasajesVendidosColumn" msprop:Generator_ColumnPropNameInRow="PasajesVendidos" msprop:Generator_ColumnVarNameInTable="columnPasajesVendidos" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PORCLASE2" msprop:Generator_RowClassName="PORCLASE2Row" msprop:Generator_RowEvHandlerName="PORCLASE2RowChangeEventHandler" msprop:Generator_RowDeletedName="PORCLASE2RowDeleted" msprop:Generator_RowDeletingName="PORCLASE2RowDeleting" msprop:Generator_RowEvArgName="PORCLASE2RowChangeEvent" msprop:Generator_TablePropName="PORCLASE2" msprop:Generator_RowChangedName="PORCLASE2RowChanged" msprop:Generator_UserTableName="PORCLASE2" msprop:Generator_RowChangingName="PORCLASE2RowChanging" msprop:Generator_TableClassName="PORCLASE2DataTable" msprop:Generator_TableVarName="tablePORCLASE2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CodigoCiudad" msprop:Generator_UserColumnName="CodigoCiudad" msprop:Generator_ColumnPropNameInTable="CodigoCiudadColumn" msprop:Generator_ColumnPropNameInRow="CodigoCiudad" msprop:Generator_ColumnVarNameInTable="columnCodigoCiudad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PasajesVendidos" msdata:ReadOnly="true" msprop:Generator_UserColumnName="PasajesVendidos" msprop:Generator_ColumnPropNameInTable="PasajesVendidosColumn" msprop:Generator_ColumnPropNameInRow="PasajesVendidos" msprop:Generator_ColumnVarNameInTable="columnPasajesVendidos" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PORCLASE3" msprop:Generator_RowClassName="PORCLASE3Row" msprop:Generator_RowEvHandlerName="PORCLASE3RowChangeEventHandler" msprop:Generator_RowDeletedName="PORCLASE3RowDeleted" msprop:Generator_RowDeletingName="PORCLASE3RowDeleting" msprop:Generator_RowEvArgName="PORCLASE3RowChangeEvent" msprop:Generator_TablePropName="PORCLASE3" msprop:Generator_RowChangedName="PORCLASE3RowChanged" msprop:Generator_UserTableName="PORCLASE3" msprop:Generator_RowChangingName="PORCLASE3RowChanging" msprop:Generator_TableClassName="PORCLASE3DataTable" msprop:Generator_TableVarName="tablePORCLASE3">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CodigoCiudad" msprop:Generator_UserColumnName="CodigoCiudad" msprop:Generator_ColumnPropNameInTable="CodigoCiudadColumn" msprop:Generator_ColumnPropNameInRow="CodigoCiudad" msprop:Generator_ColumnVarNameInTable="columnCodigoCiudad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PasajesVendidos" msdata:ReadOnly="true" msprop:Generator_UserColumnName="PasajesVendidos" msprop:Generator_ColumnPropNameInTable="PasajesVendidosColumn" msprop:Generator_ColumnPropNameInRow="PasajesVendidos" msprop:Generator_ColumnVarNameInTable="columnPasajesVendidos" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DestinosGeneral" msprop:Generator_RowEvHandlerName="DestinosGeneralRowChangeEventHandler" msprop:Generator_RowDeletedName="DestinosGeneralRowDeleted" msprop:Generator_RowDeletingName="DestinosGeneralRowDeleting" msprop:Generator_RowEvArgName="DestinosGeneralRowChangeEvent" msprop:Generator_TablePropName="DestinosGeneral" msprop:Generator_RowChangedName="DestinosGeneralRowChanged" msprop:Generator_RowChangingName="DestinosGeneralRowChanging" msprop:Generator_TableClassName="DestinosGeneralDataTable" msprop:Generator_RowClassName="DestinosGeneralRow" msprop:Generator_TableVarName="tableDestinosGeneral" msprop:Generator_UserTableName="DestinosGeneral">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TipoClase" msprop:Generator_ColumnPropNameInRow="TipoClase" msprop:Generator_ColumnPropNameInTable="TipoClaseColumn" msprop:Generator_ColumnVarNameInTable="columnTipoClase" msprop:Generator_UserColumnName="TipoClase" type="xs:string" minOccurs="0" />
+              <xs:element name="Destino" msprop:Generator_ColumnPropNameInRow="Destino" msprop:Generator_ColumnPropNameInTable="DestinoColumn" msprop:Generator_ColumnVarNameInTable="columnDestino" msprop:Generator_UserColumnName="Destino" type="xs:string" minOccurs="0" />
+              <xs:element name="PasajesVendidos" msprop:Generator_ColumnPropNameInRow="PasajesVendidos" msprop:Generator_ColumnPropNameInTable="PasajesVendidosColumn" msprop:Generator_ColumnVarNameInTable="columnPasajesVendidos" msprop:Generator_UserColumnName="PasajesVendidos" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PORCLASE1" />
+      <xs:field xpath="mstns:CodigoCiudad" />
+    </xs:unique>
+    <xs:unique name="PORCLASE2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PORCLASE2" />
+      <xs:field xpath="mstns:CodigoCiudad" />
+    </xs:unique>
+    <xs:unique name="PORCLASE3_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PORCLASE3" />
+      <xs:field xpath="mstns:CodigoCiudad" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

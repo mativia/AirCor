@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{235D15BB-61B1-4534-AB91-D4053450DF7C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>tp_pav1_grupo10</RootNamespace>
+    <AssemblyName>tp-pav1-grupo10</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8-despegue-50.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.Sharp.6.1.1\lib\net48\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=3.4.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>packages\MailKit.3.4.2\lib\net48\MailKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeKit, Version=3.4.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>packages\MimeKit.3.4.2\lib\net48\MimeKit.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InterfacesDeUsuario\Reportes\EstadisticoDestinoPorClase\DestinoPorClaseDS.cs">
+      <DependentUpon>DestinoPorClaseDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\Reportes\EstadisticoDestinoPorClase\DestinoPorClaseDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DestinoPorClaseDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\Reportes\EstadisticoDestinoPorClase\FrmDestinoPorClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\Reportes\EstadisticoDestinoPorClase\FrmDestinoPorClase.Designer.cs">
+      <DependentUpon>FrmDestinoPorClase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\Reportes\ListadoVuelos\ListadoVuelosDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListadoVuelosDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\Aeropuerto.cs" />
+    <Compile Include="Entidades\Asiento.cs" />
+    <Compile Include="Entidades\Avion.cs" />
+    <Compile Include="Entidades\CambioEstadoVuelo.cs" />
+    <Compile Include="Entidades\CapacidadXClase.cs" />
+    <Compile Include="Entidades\Ciudad.cs" />
+    <Compile Include="Entidades\DefinicionDeVuelo.cs" />
+    <Compile Include="Entidades\DefinicionVueloFiltro.cs" />
+    <Compile Include="Entidades\DetalleReserva.cs" />
+    <Compile Include="Entidades\DiaSemana.cs" />
+    <Compile Include="Entidades\Empleado.cs" />
+    <Compile Include="Entidades\EstadoVuelo.cs" />
+    <Compile Include="Entidades\Modelo.cs" />
+    <Compile Include="Entidades\Pais.cs" />
+    <Compile Include="Entidades\Pasajero.cs" />
+    <Compile Include="Entidades\PasajeroFiltro.cs" />
+    <Compile Include="Entidades\Perfil.cs" />
+    <Compile Include="Entidades\Permiso.cs" />
+    <Compile Include="Entidades\Provincia.cs" />
+    <Compile Include="Entidades\Reserva.cs" />
+    <Compile Include="Entidades\Sesion.cs" />
+    <Compile Include="Entidades\Sexo.cs" />
+    <Compile Include="Entidades\Tarifa.cs" />
+    <Compile Include="Entidades\TipoClase.cs" />
+    <Compile Include="Entidades\TipoDocumento.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Entidades\Vuelo.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmAeropuertos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmAeropuertos.Designer.cs">
+      <DependentUpon>FrmAeropuertos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmAvion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmAvion.Designer.cs">
+      <DependentUpon>FrmAvion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\Reportes\ListadoVuelos\FrmInformeVuelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\Reportes\ListadoVuelos\FrmInformeVuelos.Designer.cs">
+      <DependentUpon>FrmInformeVuelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmAñadirPasajero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmAñadirPasajero.Designer.cs">
+      <DependentUpon>FrmAñadirPasajero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmConsultarVuelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmConsultarVuelos.Designer.cs">
+      <DependentUpon>FrmConsultarVuelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmCiudad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmCiudad.Designer.cs">
+      <DependentUpon>FrmCiudad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmDefinicionVuelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmDefinicionVuelo.Designer.cs">
+      <DependentUpon>FrmDefinicionVuelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmEmpleados.Designer.cs">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmPais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmPais.Designer.cs">
+      <DependentUpon>FrmPais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmPasajeros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmPasajeros.Designer.cs">
+      <DependentUpon>FrmPasajeros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmPerfiles.Designer.cs">
+      <DependentUpon>FrmPerfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmProvincia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmProvincia.Designer.cs">
+      <DependentUpon>FrmProvincia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmRegistrarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmRegistrarReserva.Designer.cs">
+      <DependentUpon>FrmRegistrarReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmResumen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmResumen.Designer.cs">
+      <DependentUpon>FrmResumen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmSeleccionAsiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmSeleccionAsiento.Designer.cs">
+      <DependentUpon>FrmSeleccionAsiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfacesDeUsuario\MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\AeropuertoRepositorio.cs" />
+    <Compile Include="Repositorios\AsientoRepositorio.cs" />
+    <Compile Include="Repositorios\AvionRepositorio.cs" />
+    <Compile Include="Repositorios\CiudadRepositorio.cs" />
+    <Compile Include="Repositorios\DBHelper.cs" />
+    <Compile Include="Repositorios\DefinicionDeVueloRepositorio.cs" />
+    <Compile Include="Repositorios\DiaSemanaRepositorio.cs" />
+    <Compile Include="Repositorios\ModeloRepositorio.cs" />
+    <Compile Include="Repositorios\EmpleadoRepositorio.cs" />
+    <Compile Include="Repositorios\PaisRepositorio.cs" />
+    <Compile Include="Repositorios\PasajeroRepositorio.cs" />
+    <Compile Include="Repositorios\PerfilRepositorio.cs" />
+    <Compile Include="Repositorios\PermisoRepositorio.cs" />
+    <Compile Include="Repositorios\ProvinciaRepositorio.cs" />
+    <Compile Include="Repositorios\ReportesRepositorio.cs" />
+    <Compile Include="Repositorios\ReservaRepositorio.cs" />
+    <Compile Include="Repositorios\TarifaRepositorio.cs" />
+    <Compile Include="Repositorios\TipoDocumentoRepositorio.cs" />
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
+    <Compile Include="Repositorios\VueloRepositorio.cs" />
+    <Compile Include="Servicios\AeropuertoServicios.cs" />
+    <Compile Include="Servicios\CiudadServicios.cs" />
+    <Compile Include="Servicios\AvionServicios.cs" />
+    <Compile Include="Servicios\CorreoServicio.cs" />
+    <Compile Include="Servicios\DefinicionDeVueloServicios.cs" />
+    <Compile Include="Servicios\EmpleadoServicios.cs" />
+    <Compile Include="Servicios\GestorReserva.cs" />
+    <Compile Include="Servicios\ModeloServicios.cs" />
+    <Compile Include="Servicios\PaisServicios.cs" />
+    <Compile Include="Servicios\PasajeroServicios.cs" />
+    <Compile Include="Servicios\PerfilServicios.cs" />
+    <Compile Include="Servicios\PermisoServicios.cs" />
+    <Compile Include="Servicios\ProvinciaServicios.cs" />
+    <Compile Include="Servicios\ReporteServicios.cs" />
+    <Compile Include="Servicios\TipoDocumentoServicios.cs" />
+    <Compile Include="Servicios\UsuarioServicios.cs" />
+    <Compile Include="Servicios\VueloServicios.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\Reportes\EstadisticoDestinoPorClase\FrmDestinoPorClase.resx">
+      <DependentUpon>FrmDestinoPorClase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\Reportes\EstadisticoDestinoPorClase\ReportDestinoPorClase.rdlc" />
+    <EmbeddedResource Include="InterfacesDeUsuario\Reportes\ListadoVuelos\InfVuelos.rdlc" />
+    <EmbeddedResource Include="InterfacesDeUsuario\FrmAeropuertos.resx">
+      <DependentUpon>FrmAeropuertos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\FrmAvion.resx">
+      <DependentUpon>FrmAvion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\Reportes\ListadoVuelos\FrmInformeVuelos.resx">
+      <DependentUpon>FrmInformeVuelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmAñadirPasajero.resx">
+      <DependentUpon>FrmAñadirPasajero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmConsultarVuelos.resx">
+      <DependentUpon>FrmConsultarVuelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\FrmCiudad.resx">
+      <DependentUpon>FrmCiudad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\FrmDefinicionVuelo.resx">
+      <DependentUpon>FrmDefinicionVuelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\FrmEmpleados.resx">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\FrmPais.resx">
+      <DependentUpon>FrmPais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\FrmPasajeros.resx">
+      <DependentUpon>FrmPasajeros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\FrmPerfiles.resx">
+      <DependentUpon>FrmPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\FrmProvincia.resx">
+      <DependentUpon>FrmProvincia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmRegistrarReserva.resx">
+      <DependentUpon>FrmRegistrarReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmResumen.resx">
+      <DependentUpon>FrmResumen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfacesDeUsuario\TransaccionReservaVuelo\FrmSeleccionAsiento.resx">
+      <DependentUpon>FrmSeleccionAsiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="InterfacesDeUsuario\Reportes\EstadisticoDestinoPorClase\DestinoPorClaseDS.xsc">
+      <DependentUpon>DestinoPorClaseDS.xsd</DependentUpon>
+    </None>
+    <None Include="InterfacesDeUsuario\Reportes\EstadisticoDestinoPorClase\DestinoPorClaseDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DestinoPorClaseDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="InterfacesDeUsuario\Reportes\EstadisticoDestinoPorClase\DestinoPorClaseDS.xss">
+      <DependentUpon>DestinoPorClaseDS.xsd</DependentUpon>
+    </None>
+    <None Include="InterfacesDeUsuario\Reportes\ListadoVuelos\ListadoVuelosDS.xsc">
+      <DependentUpon>ListadoVuelosDS.xsd</DependentUpon>
+    </None>
+    <None Include="InterfacesDeUsuario\Reportes\ListadoVuelos\ListadoVuelosDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ListadoVuelosDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="InterfacesDeUsuario\Reportes\ListadoVuelos\ListadoVuelosDS.xss">
+      <DependentUpon>ListadoVuelosDS.xsd</DependentUpon>
+    </None>
+    <None Include="Package Manager Console" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\avion" />
+    <None Include="scripts\get-sqlservertypes.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-despegue-para-formularios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagen-login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_gris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo-blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_sin_nada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_gris_20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\silla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asignado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disponible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocupado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SqlServerSpatial160_x64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SqlServerSpatial160_x86.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\icono.ico" />
+    <Content Include="icons8-despegue-50.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
+</Project>
