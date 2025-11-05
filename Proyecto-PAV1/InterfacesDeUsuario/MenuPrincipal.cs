@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -110,6 +111,47 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
             // Ensure avatar background transparent, but panel will use menu background
             this.picUserAvatar.BackColor = Color.Transparent;
 
+            // Load avatar image from custom folder 'iconos/usuario-png.png' if available (relative to app base), else fallback to resources
+            try
+            {
+                // First check absolute path provided by user
+                string absoluteUserPath = @"C:\Users\matt_\Documents\GitHub\AirCor\Proyecto-PAV1\iconos\usuario-png.png";
+                if (File.Exists(absoluteUserPath))
+                {
+                    using (var img = Image.FromFile(absoluteUserPath))
+                    {
+                        picUserAvatar.Image = new Bitmap(img);
+                    }
+                }
+                else
+                {
+                    string customPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "iconos", "usuario-png.png");
+                    // When running in Visual Studio the BaseDirectory is bin\\Debug or bin\\Release; also try parent levels
+                    if (!File.Exists(customPath))
+                    {
+                        string alt = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "iconos", "usuario-png.png"));
+                        if (File.Exists(alt)) customPath = alt;
+                    }
+
+                    if (File.Exists(customPath))
+                    {
+                        // Load a copy so file is not locked
+                        using (var img = Image.FromFile(customPath))
+                        {
+                            picUserAvatar.Image = new Bitmap(img);
+                        }
+                    }
+                    else
+                    {
+                        picUserAvatar.Image = Properties.Resources.asignado ?? Properties.Resources.png_sin_nada;
+                    }
+                }
+            }
+            catch
+            {
+                picUserAvatar.Image = Properties.Resources.png_sin_nada;
+            }
+
             // Make panel background match the menu so user slot blends with menu
             try
             {
@@ -126,6 +168,18 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
             catch { }
 
             AddUserInfoToMenu();
+
+            // Make picUserAvatar circular by setting region (after host/sizing)
+            try
+            {
+                var r = new Rectangle(0, 0, picUserAvatar.Width, picUserAvatar.Height);
+                using (var gp = new GraphicsPath())
+                {
+                    gp.AddEllipse(r);
+                    picUserAvatar.Region = new Region(gp);
+                }
+            }
+            catch { }
         }
 
         private void SubscribeHover(ToolStripItem item)

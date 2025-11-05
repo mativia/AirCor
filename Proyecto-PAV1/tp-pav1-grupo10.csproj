@@ -458,6 +458,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\icono.ico" />
+    <Content Include="iconos\usuario-png.png" />
     <Content Include="icons8-despegue-50.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
