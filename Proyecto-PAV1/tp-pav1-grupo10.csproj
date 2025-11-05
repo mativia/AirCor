@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InterfacesDeUsuario\CustomMenuRenderer.cs" />
+    <Compile Include="InterfacesDeUsuario\LightProfessionalColorTable.cs" />
     <Compile Include="InterfacesDeUsuario\Reportes\EstadisticoDestinoPorClase\DestinoPorClaseDS.cs">
       <DependentUpon>DestinoPorClaseDS.xsd</DependentUpon>
     </Compile>

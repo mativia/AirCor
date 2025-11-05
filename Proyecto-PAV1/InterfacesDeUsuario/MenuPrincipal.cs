@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FontAwesome.Sharp;
 using tp_pav1_grupo10.Entidades;
 using tp_pav1_grupo10.InterfacesDeUsuario.Reportes.EstadisticoDestinoPorClase;
 using tp_pav1_grupo10.InterfacesDeUsuario.Reportes.ListadoVuelos;
@@ -18,6 +19,13 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
     {
         private Login frmLogin;
         private readonly PermisoServicios permisoServicios;
+
+        // Theme state
+        private bool isDarkTheme = true;
+        private Color menuTextColor;
+        private Color hoverColor;
+        private Font menuFont;
+
         public MenuPrincipal(Login login)
         {
             frmLogin = login;
@@ -27,21 +35,67 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            // Aplicar renderer personalizado para colores oscuros.
-            this.menuStrip1.Renderer = new ToolStripProfessionalRenderer(new CustomProfessionalColorTable());
+            // Font: Segoe UI Semibold (fall back to Bold if not available)
+            try
+            {
+                menuFont = new Font("Segoe UI Semibold", 9F);
+            }
+            catch
+            {
+                menuFont = new Font("Segoe UI", 9F, FontStyle.Bold);
+            }
 
-            // Forzar color de texto blanco a todos los ToolStripItems
+            this.menuStrip1.Font = menuFont;
+
+            // Aplicar renderer personalizado para colores oscuros inicialmente.
+            ApplyDarkTheme();
+
+            // Forzar color de texto a todos los ToolStripItems y subscribir hover
             foreach (ToolStripItem item in menuStrip1.Items)
             {
-                item.ForeColor = Color.White;
+                item.ForeColor = menuTextColor;
+                item.Font = menuFont;
+                SubscribeHover(item);
+
                 if (item is ToolStripMenuItem tmi)
                 {
                     foreach (ToolStripItem sub in tmi.DropDownItems)
                     {
-                        sub.ForeColor = Color.White;
+                        sub.ForeColor = menuTextColor;
+                        sub.Font = menuFont;
+                        SubscribeHover(sub);
                     }
+                    // ensure dropdown background matches theme
+                    tmi.DropDown.BackColor = menuStrip1.BackColor;
+                    tmi.DropDown.ForeColor = menuTextColor;
                 }
             }
+
+            // Remove any programmatic theme menu item if existed (we now use btnTema)
+            var old = menuStrip1.Items.Find("imiTema", false);
+            if (old != null && old.Length > 0)
+                menuStrip1.Items.Remove(old[0]);
+
+            // Theme toggle will be created as a small menu item below
+
+            // Add theme toggle as a small menu item on the right
+            var imiTema = new IconMenuItem()
+            {
+                Name = "imiTema",
+                Text = "",
+                IconChar = IconChar.Moon,
+                IconColor = menuTextColor,
+                IconFont = IconFont.Auto,
+                IconSize = 24,
+                ImageScaling = ToolStripItemImageScaling.None,
+                Padding = new Padding(10, 8, 10, 8),
+                AutoSize = false,
+                Size = new System.Drawing.Size(60, 74), // make it wider to be more visible
+                DisplayStyle = ToolStripItemDisplayStyle.Image
+            };
+            imiTema.Click += (s, ev) => ToggleTheme(imiTema);
+            menuStrip1.Items.Add(imiTema);
+            SubscribeHover(imiTema);
 
             HabilitarMenus();
             lblUsuLogueado.Text = $"Usuario: {UsuarioServicios.UsuarioLogueado.Nombre}";
@@ -49,7 +103,150 @@ namespace tp_pav1_grupo10.InterfacesDeUsuario
             imiInformeDetalladoVuelo.Visible = false;
             imiConsultarEstados.Visible = false;
             imiConsultarReserva.Visible = false;
+        }
 
+        private void SubscribeHover(ToolStripItem item)
+        {
+            // store original forecolor in Tag (only if not set)
+            if (item.Tag == null)
+                item.Tag = item.ForeColor;
+
+            item.MouseEnter += (s, e) =>
+            {
+                try
+                {
+                    // Much more subtle hover: slight color tint and tiny icon size change
+                    item.ForeColor = BlendColor(item.ForeColor, hoverColor, 0.35f);
+                    if (item is IconMenuItem imi)
+                    {
+                        imi.IconColor = BlendColor(imi.IconColor, hoverColor, 0.35f);
+                        imi.IconSize = Math.Min(48, imi.IconSize + 2);
+                    }
+                }
+                catch { }
+            };
+
+            item.MouseLeave += (s, e) =>
+            {
+                try
+                {
+                    item.ForeColor = menuTextColor;
+                    if (item is IconMenuItem imi)
+                    {
+                        imi.IconColor = menuTextColor;
+                        imi.IconSize = Math.Max(12, imi.IconSize - 2);
+                    }
+                }
+                catch { }
+            };
+        }
+
+        // Blend two colors by t (0..1)
+        private Color BlendColor(Color a, Color b, float t)
+        {
+            t = Math.Max(0, Math.Min(1, t));
+            int r = (int)(a.R + (b.R - a.R) * t);
+            int g = (int)(a.G + (b.G - a.G) * t);
+            int bl = (int)(a.B + (b.B - a.B) * t);
+            int alpha = (int)(a.A + (b.A - a.A) * t);
+            return Color.FromArgb(alpha, r, g, bl);
+        }
+
+        private void ToggleTheme(IconMenuItem imiTema)
+        {
+            // toggle theme and update small button icon
+            if (isDarkTheme)
+            {
+                ApplyLightTheme();
+                imiTema.IconChar = IconChar.Sun;
+                imiTema.IconColor = menuTextColor;
+                imiTema.Text = "";
+            }
+            else
+            {
+                ApplyDarkTheme();
+                imiTema.IconChar = IconChar.Moon;
+                imiTema.IconColor = menuTextColor;
+                imiTema.Text = "";
+            }
+
+            // refresh menu items colors and icon colors
+            foreach (ToolStripItem item in menuStrip1.Items)
+            {
+                item.ForeColor = menuTextColor;
+                if (item is IconMenuItem imiRoot)
+                {
+                    imiRoot.IconColor = menuTextColor;
+                }
+                if (item is ToolStripMenuItem tmi)
+                {
+                    tmi.DropDown.BackColor = menuStrip1.BackColor;
+                    tmi.DropDown.ForeColor = menuTextColor;
+                    foreach (ToolStripItem sub in tmi.DropDownItems)
+                    {
+                        sub.ForeColor = menuTextColor;
+                        sub.BackColor = menuStrip1.BackColor;
+                        if (sub is IconMenuItem imiSub)
+                        {
+                            imiSub.IconColor = menuTextColor;
+                        }
+                    }
+                }
+            }
+
+            try
+            {
+                menuStrip1.Invalidate();
+                menuStrip1.Refresh();
+            }
+            catch { }
+        }
+
+        private void ApplyDarkTheme()
+        {
+            isDarkTheme = true;
+            menuTextColor = Color.White;
+            hoverColor = Color.FromArgb(255, 245, 230); // very subtle warm tint
+
+            // renderer
+            this.menuStrip1.Renderer = new ToolStripProfessionalRenderer(new CustomProfessionalColorTable());
+            this.menuStrip1.BackColor = Color.FromArgb(13, 71, 161);
+            this.menuStrip1.ForeColor = menuTextColor;
+            this.BackColor = Color.White; // keep main background as before
+        }
+
+        private void ApplyLightTheme()
+        {
+            isDarkTheme = false;
+            menuTextColor = Color.FromArgb(34, 34, 34);
+            hoverColor = Color.FromArgb(200, 200, 220); // subtle darker tint for hover
+
+            // light color table
+            this.menuStrip1.Renderer = new ToolStripProfessionalRenderer(new LightProfessionalColorTable());
+            this.menuStrip1.BackColor = Color.WhiteSmoke;
+            this.menuStrip1.ForeColor = menuTextColor;
+            this.BackColor = Color.White;
+
+            // Ensure dropdowns are readable: set their back/fore explicitly
+            foreach (ToolStripItem item in menuStrip1.Items)
+            {
+                if (item is ToolStripMenuItem tmi)
+                {
+                    tmi.DropDown.BackColor = Color.White;
+                    tmi.DropDown.ForeColor = menuTextColor;
+                    tmi.DropDown.RenderMode = ToolStripRenderMode.Professional;
+                    foreach (ToolStripItem sub in tmi.DropDownItems)
+                    {
+                        sub.BackColor = Color.White;
+                        sub.ForeColor = menuTextColor;
+                        // also set image margin area
+                        if (tmi.DropDown is ToolStripDropDownMenu ddm)
+                        {
+                            ddm.ShowImageMargin = true;
+                        }
+                    }
+                }
+            }
         }
 
         private void HabilitarMenus()
